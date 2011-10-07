@@ -13,11 +13,11 @@ block content
           - var repo = files.code[i]
           li 
             h3
-              a(href=repo.href)= repo.title
+              a(href=repo.docs)= repo.title
               .version= repo.version
-            .summary= repo.summary
-            .repo: a(href=repo.repo) Fork #{repo.title} on Github
-            .docs: a(href=repo.repo) #{repo.docstitle}
+            .summary: p= repo.summary
+            .repo: a(href=repo.repo) Fork on Github
+            .docs: a(href=repo.docs) #{repo.docstitle}
           
   - if (files.posts)
     .widget#recent-posts

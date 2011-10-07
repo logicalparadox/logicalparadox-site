@@ -8,7 +8,7 @@ fez()
 body
   font 13px/1.4 "helvetica neue", helvetica, arial, sans-serif
 a
-  color #cc3300
+  color #4183c4
   text-decoration none
 
 header, section#content, footer
@@ -39,18 +39,31 @@ nav
 
 #code
   margin-bottom 50px
-  .info
+  li
     clearfix()
-    a
-      button-shiny(#3e7b3b, #fff)
-  .repo
-    clearfix()
-    a
-      button-shiny()
-  .docs
-    clearfix()
-    a
-      button-shiny(#cc3300, #fff)
+    width 50%
+    border-top 1px solid darken(#fff, 15%)
+    padding-top 10px
+    margin-bottom 25px
+
+    h3
+      clearfix()
+      .version
+        display inline-block
+        color darken(#fff, 35%)
+        font-size 11px
+    .repo
+      clearfix()
+      float left
+      margin-right 10px
+      a
+        button-shiny()
+    .docs
+      clearfix()
+      float left
+      margin-right 10px
+      a
+        button-shiny(#fff, #4183c4)
 
 
 footer
