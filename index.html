@@ -7,22 +7,52 @@
   </head>
   <body>
     <nav>
-      <noop>
-      </noop>
+      <ul class="pages">
+        <li><a href="/">Home</a>
+        </li>
+        <li><a href="/pages/archive.html">Post Archive</a>
+        </li>
+      </ul>
     </nav>
-    <div id="header-wrap">
+    <header>
       <h1>A Logical Paradox
       </h1>
-    </div>
-    <content>
-      <content><p>&hellip; coming soon.</p>
-      </content>
-      <div id="articles">
+    </header>
+    <section id="content">
+      <article><p>It&rsquo;s a site.</p>
+      </article>
+      <div id="code" class="widget">
+        <ul>
+          <li>
+            <h3><a href="/code/codex.html">Codex</a>
+              <div class="version">0.0.1
+              </div>
+            </h3>
+            <div class="summary">Tiny static site builder.
+            </div>
+            <div class="repo"><a href="http://github.com/logicalparadox/codex">Fork Codex on Github</a>
+            </div>
+            <div class="docs"><a href="http://github.com/logicalparadox/codex">CodexJs.com</a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </content>
+      <div id="recent-posts" class="widget">
+        <h3>Recent Posts
+        </h3>
+        <ul>
+          <li>
+            <h4><a href="/posts/how-i-work.html">How I Work</a>
+            </h4>
+            <div class="summary">Every geek has their own way of doing things...
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
     <footer>
-      <noop>
-      </noop>
+      <div class="branding">Built by <a href="http://logicalparadox.github.com/codex" class="button branding">Codex</a>
+      </div>
     </footer>
   </body>
 </html>

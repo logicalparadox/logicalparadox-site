@@ -2,4 +2,4 @@
   title: A Logical Paradox
 ---
 
-... coming soon.
+It's a site.
