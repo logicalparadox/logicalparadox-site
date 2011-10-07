@@ -1,0 +1,19 @@
+extends layout
+
+block nav
+  noop
+
+block content
+  content!= file.prepared
+  #articles
+    - if (files.posts)
+      ul
+      - var len = (files.posts.length > 5) ? 5 : files.posts.length
+      - for (var i = 0; i < len; i++)
+        - var post = files.posts[i]
+        li 
+          h4: a(href=post.href) #{post.title}
+          .summary= post.summary
+
+block footer
+  noop
