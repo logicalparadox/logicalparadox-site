@@ -1,19 +1,31 @@
 extends layout
 
-block nav
-  noop
+block header
+  h1= file.title
 
 block content
-  content!= file.prepared
-  #articles
-    - if (files.posts)
+  article!= file.prepared
+  - if (files.code)
+    .widget#code
+      h3 Open Source Projects
       ul
-      - var len = (files.posts.length > 5) ? 5 : files.posts.length
-      - for (var i = 0; i < len; i++)
-        - var post = files.posts[i]
-        li 
-          h4: a(href=post.href) #{post.title}
-          .summary= post.summary
-
-block footer
-  noop
+        - for (var i = 0; i < files.code.length; i++)
+          - var repo = files.code[i]
+          li 
+            h3
+              a(href=repo.docs)= repo.title
+              .version= repo.version
+            .summary: p= repo.summary
+            .repo: a(href=repo.repo) Fork on Github
+            .docs: a(href=repo.docs) #{repo.docstitle}
+          
+  - if (files.posts)
+    .widget#recent-posts
+      h3 Recent Posts
+      ul
+        - var len = (files.posts.length > 5) ? 5 : files.posts.length
+        - for (var i = 0; i < len; i++)
+          - var post = files.posts[i]
+          li 
+            h4: a(href=post.href) #{post.title}
+            .summary= post.summary
