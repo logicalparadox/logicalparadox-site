@@ -8,8 +8,8 @@ block content
   #articles
     - if (files.posts)
       ul
-      - for (var i = 0; i < files.posts.length; i++)
-        - var post = files.posts[i]
-        li 
-          h4: a(href=post.href) #{post.title}
-          .summary= post.summary
+        - for (var i = 0; i < files.posts.length; i++)
+          - var post = files.posts[i]
+          li 
+            h4: a(href=post.href) #{post.title}
+            .summary= post.summary

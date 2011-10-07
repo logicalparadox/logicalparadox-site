@@ -165,6 +165,7 @@ header {
 section#content {
   margin-top: 50px;
   margin-bottom: 50px;
+  min-height: 350px;
 }
 nav {
   position: fixed;
@@ -180,6 +181,9 @@ nav ul li {
 }
 nav ul li a:hover {
   text-decoration: underline;
+}
+#code {
+  margin-bottom: 50px;
 }
 #code .info {
   zoom: 1;

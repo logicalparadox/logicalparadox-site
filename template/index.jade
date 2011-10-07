@@ -5,8 +5,9 @@ block header
 
 block content
   article!= file.prepared
-  .widget#code
-    - if (files.code)
+  - if (files.code)
+    .widget#code
+      h3 Open Source Projects
       ul
         - for (var i = 0; i < files.code.length; i++)
           - var repo = files.code[i]
@@ -18,9 +19,9 @@ block content
             .repo: a(href=repo.repo) Fork #{repo.title} on Github
             .docs: a(href=repo.repo) #{repo.docstitle}
           
-  .widget#recent-posts
-    h3 Recent Posts
-    - if (files.posts)
+  - if (files.posts)
+    .widget#recent-posts
+      h3 Recent Posts
       ul
         - var len = (files.posts.length > 5) ? 5 : files.posts.length
         - for (var i = 0; i < len; i++)
