@@ -47,24 +47,67 @@ if (typeof jQuery != 'undefined') {
               , $curr
               , count = 0;
             
-            for (var i = 0; i < settings.blocks; i ++) {
-              if (last > len) last = 0;
-              
-              $curr = $('.block', $blocks).filter(function () {
-                return $(this).attr('block-index') == last;
-              })[0];
-              
-              $($curr).clone().appendTo($panels);
-              
-              log($curr, last);
-              
-              last++;
+            var fadeIn = function (which, delay, durr) {
+              setTimeout(function () {
+                $(which).fadeIn(durr);
+              }, delay);
             }
             
-            setTimeout(function() {
-              //rotate(last);
-            }, 5000);
+            var fadeOut = function (which, delay, durr, next) {
+              setTimeout(function () {
+                $(which).animate({opacity: 0}, durr, next);
+              }, delay);
+            }
             
+            var rotateIn = function (anim) {
+              var durr = (!anim) ? 0 : 700;
+              
+              for (var i = 0; i < settings.blocks; i ++) {
+                if (last > len) last = 0;
+              
+                $curr = $('.block', $blocks).filter(function () {
+                  return $(this).attr('block-index') == last;
+                })[0];
+                
+                $new_panel = $($curr)
+                  .clone()
+                  .css({
+                    display: 'none'
+                  })
+                  .appendTo($panels);
+                
+                if (anim) {
+                  fadeIn($new_panel, i * 300, durr);
+                } else {
+                  $new_panel.css({ display: 'block' });
+                }
+                
+                last++;
+              }
+              setTimeout(function () {
+                rotateOut();
+              }, 10000);
+            }
+            
+            var rotateOut = function () {
+              var count = 0;
+              var next = function() {
+                count++;
+                if ($('.block', $panels).length == count) {
+                  $('.block', $panels).each(function() { $(this).remove() });
+                  rotateIn(true);
+                }
+              }
+              
+              $('.block', $panels).each(function (i) {
+                fadeOut(this, i * 300, 700, next);
+              });
+            }
+            
+            rotateIn();
+            setTimeout(function () {
+              rotateOut();
+            }, 10000);
           }
           
           log($blocks, $controls, $panels);
@@ -76,7 +119,7 @@ if (typeof jQuery != 'undefined') {
      * Slider Defaults
      */
     $.fn.slider.defaults = {
-      blocks: 4
+      blocks: 3
     };
   }(jQuery));
 }
