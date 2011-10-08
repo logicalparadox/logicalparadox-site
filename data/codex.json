@@ -1,4 +1,6 @@
 {
-  "site-title": "A Logical Paradox"
-  "site-description": "Greetings. My name is Jake and I am a geek."
+  "locals": {
+    "title": "A Logical Paradox",
+    "description": "I am a geek."
+  }
 }
