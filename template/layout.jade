@@ -1,7 +1,8 @@
 !!!5
 html(lang='en')
   head
-    title= file.title
+    - var sitetitle = (site && site.title) ? site.title + ' - ' + file.title : file.title
+    title= sitetitle
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
     link(rel='stylesheet', href='/public/css/main.css', type='text/css', media='all')
     script
@@ -15,19 +16,18 @@ html(lang='en')
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   body
-    nav
-      block nav
-        ul.pages
-          li: a(href="/") Home
-          - if (files.pages)
-            for page in files.pages
-              li: a(href=page.href)= page.title
-    header
+    nav#primary
+      h1#site-title: a(href='/')= site.title
+      ul.menu
+        - if (files.menu)
+          for menu in files.menu
+            li.tab: a(href=menu.link)= menu.title
+    header#content
       block header
     section#content
       block content
         .wrap!= file.prepared
-    footer
+    footer#primary
       block footer
         .branding Built by 
           a.button.branding(href='http://logicalparadox.github.com/codex') Codex
