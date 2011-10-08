@@ -4,21 +4,35 @@ block header
   h1= file.title
 
 block content
-  article!= file.prepared
   - if (files.code)
     .widget#code
-      h3 Open Source Projects
-      ul
-        - for (var i = 0; i < files.code.length; i++)
-          - var repo = files.code[i]
-          li 
+      .arrow-prev prev
+      .arrow-next next
+      .wrap
+        .position
+          .pos
+            .p A
+          .pos
+            .p B
+          .pos
+            .p C
+        .blocks
+    .widget-hidden
+      .project#intro
+        .wrap
+          :markdown
+            Yep, I code.
+      - for (var i = 0; i < files.code.length; i++)
+        - var repo = files.code[i]
+        .project 
+          .wrap
             h3
-              a(href=repo.docs)= repo.title
+              a(href=repo.href)= repo.title
               .version= repo.version
             .summary: p= repo.summary
             .repo: a(href=repo.repo) Fork on Github
             .docs: a(href=repo.docs) #{repo.docstitle}
-          
+  article!= file.prepared
   - if (files.posts)
     .widget#recent-posts
       h3 Recent Posts

@@ -5,65 +5,132 @@ global-reset()
 
 fez()
 
+black = lighten(#000, 45%)
+white = darken(#fff, 2%)
+
+color1 = #D1E3E2
+color2 = #809843
+color3 = #9F2E2E
+color4 = #ECD8B5
+color5 = #353132
+
 body
-  font 13px/1.4 "helvetica neue", helvetica, arial, sans-serif
+  font 14px/21px  "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
+  background-color color1
+  color black
+
+h1, h2, h3, h4, h5
+  font-family "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif
+  font-weight normal
+
 a
-  color #4183c4
+  color color2
   text-decoration none
 
-header, section#content, footer
-  width 740px
-  margin-left 220px
+nav#primary
+header#content, 
+section#content, 
+footer#primary
+  margin 0px auto
+  width 940px
 
 header
   margin-top 50px
+
+nav#primary
+  clearfix()
+  background-color white
+  border-radius bottom 5px
+  line-height 54px
+  overflow hidden
+  box-shadow 0px 0px 5px rgba(0,0,0,0.2)
+  
+  h1#site-title
+    margin 0px 15px
+    font-size 28px
+    line-height 54px
+    float left
+    a
+      color black
+  ul.menu
+    list-style none
+    float right
+    li.tab
+      margin-left 0px
+      float left
+      border-left 1px solid lighten(black, 75%)
+      a
+        display inline-block
+        padding 0 30px
+        &:hover
+          background-color lighten(color1, 70%)
 
 section#content
   margin-top 50px
   margin-bottom 50px
   min-height 350px
+  background-color white
+  box-shadow 0px 0px 5px rgba(0,0,0,0.2)
+  border-radius 5px
 
-nav
-  position fixed
-  top 65px
-  left 50px
-  width 120px
-  
-  ul
-    list-style none
-    li
-      margin-left 0px
-      a
-        &:hover
-          text-decoration underline
 
-#code
+.widget#code
+  clearfix()
   margin-bottom 50px
-  li
-    clearfix()
-    width 50%
-    border-top 1px solid darken(#fff, 15%)
-    padding-top 10px
-    margin-bottom 25px
+  border-bottom 1px solid lighten(black, 75%)
+  height 200px
+  position relative
+  .arrow-prev
+    background-color white
+    width 20px
+    height 40px
+    position absolute
+    top 80px
+    left -20px
+    overflow hidden
+    cursor pointer
+  .arrow-next
+    background-color white
+    width 20px
+    height 40px
+    position absolute
+    top 80px
+    right -20px
+    overflow hidden
+    cursor pointer
+  
+  > .wrap
+    overflow hidden
+    height 200px
+    > .position
+      position absolute
+      top 0px
+      white-space nowrap
+      height 25px
+      overflow hidden
+      border-left 1px lighten(black, 75%) solid
+      border-right 1px lighten(black, 75%) solid
+      border-bottom 1px lighten(black, 75%) solid
+      border-radius bottom 5px
+      .pos
+        display table-cell
+        .p
+          width 25px
+          height 25px
+      
+    > .blocks
+      .project
+        width 25%
+        float left
+        .wrap
+          height 250px
+          border-right 1px black solid
+        &:last-child
+          .wrap
+            border-right 0px white solid
 
-    h3
-      clearfix()
-      .version
-        display inline-block
-        color darken(#fff, 35%)
-        font-size 11px
-    .repo
-      clearfix()
-      float left
-      margin-right 10px
-      a
-        button-shiny()
-    .docs
-      clearfix()
-      float left
-      margin-right 10px
-      a
-        button-shiny(#fff, #4183c4)
+.widget-hidden
+  display none
 
 
 footer
