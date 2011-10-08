@@ -6,32 +6,23 @@ block header
 block content
   - if (files.code)
     .widget#code
-      .arrow-prev prev
-      .arrow-next next
-      .wrap
+      .controls
+        .arrow-prev prev
+        .arrow-next next
         .position
-          .pos
-            .p A
-          .pos
-            .p B
-          .pos
-            .p C
-        .blocks
+      .panels
+      .blocks
+        - for (var i = 0; i < files.code.length; i++)
+          - var repo = files.code[i]
+          .block 
+            .wrap
+              h3
+                a(href=repo.href)= repo.title
+                .version= repo.version
+              .summary: p= repo.summary
+              .repo: a(href=repo.repo) Fork on Github
+              .docs: a(href=repo.docs) #{repo.docstitle}
     .widget-hidden
-      .project#intro
-        .wrap
-          :markdown
-            Yep, I code.
-      - for (var i = 0; i < files.code.length; i++)
-        - var repo = files.code[i]
-        .project 
-          .wrap
-            h3
-              a(href=repo.href)= repo.title
-              .version= repo.version
-            .summary: p= repo.summary
-            .repo: a(href=repo.repo) Fork on Github
-            .docs: a(href=repo.docs) #{repo.docstitle}
   article!= file.prepared
   - if (files.posts)
     .widget#recent-posts
