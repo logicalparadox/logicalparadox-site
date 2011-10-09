@@ -17,19 +17,20 @@ html(lang='en')
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   body
-    nav#primary
-      h1#site-title: a(href='/')= site.title
-      ul.menu
-        - if (files.menu)
-          for menu in files.menu
-            li.tab: a(href=menu.link)= menu.title
-    header#content
-      block header
-    section#content
-      block content
-        .wrap!= file.prepared
-    footer#primary
-      block footer
-        .branding Built by 
-          a.button.branding(href='http://logicalparadox.github.com/codex') Codex
+    .page-wrap
+      nav#primary
+        h1#site-title: a(href='/')= site.title
+        ul.menu
+          - if (files.menu)
+            for menu in files.menu
+              li.tab: a(href=menu.link)= menu.title
+      header#content
+        block header
+      section#content
+        block content
+          .content!= file.prepared
+      footer#primary
+        block footer
+          .branding Built by 
+            a.button.branding(href='http://logicalparadox.github.com/codex') Codex
     
