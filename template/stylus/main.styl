@@ -31,23 +31,48 @@ a
   text-decoration none
 
 .page-wrap
+  
+
   nav#primary
   header#content, 
   section#content, 
   footer#primary
     row(12)
-    margin-top 50px
+    overflow visible
+    position relative
+    .decor
+      position absolute
+      top -6px
+      bottom -6px
+      right -6px
+      left -6px
+      z-index 5
+      opacity 0.4
+      background-color white
+      border-radius 8px
+    .wrap
+      margin-top 50px
+      position relative
+      display block
+      z-index 20
+      overflow hidden
 
-  nav#primary
+  nav#primary > .wrap
     margin-top 0px
+  
+  footer#primary
+    .decor
+      bottom 0px
+      border-radius top 8px
+      border-radius bottom 0px
 
 header
   margin-top 50px
 
-nav#primary
+nav#primary > .wrap
   clearfix()
   background-color white
-  border-radius bottom 10px
+  border-radius bottom 5px
   line-height 54px
   overflow hidden
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)
@@ -72,20 +97,21 @@ nav#primary
         &:hover
           background-color lighten(color1, 70%)
 
-section#content
+section#content > .wrap
   margin-top 50px
   margin-bottom 50px
   min-height 350px
   background-color white
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)
   background-color lighten(color1, 70%)
-  border-radius 10px
+  border-radius 5px
   overflow hidden
   > .primary
     clearfix()
     float left
     background-color white
     box-shadow inset -1px -1px 0px #fff, 1px 1px 3px lighten(color1, 30%)
+    border-radius left 5px
     .wrapper
       grid(8)
       margin-top 15px
@@ -162,20 +188,23 @@ section#content
           width 25px
           height 25px
   .message
-    background-color white
-    border-radius top left 10px
     clearfix()
+    background-color white
+    border-radius top left 5px
+    box-shadow inset -1px -1px 0px #fff, 1px 1px 3px lighten(color1, 30%)
     float left
     height 200px
+    position relative
+    z-index 30
     .wrap
       grid(3)
       height 170px
       margin-top 15px
       margin-bottom 15px
   .animate
+    box-shadow inset 1px -1px 3px lighten(color1, 30%)
     > .panels
         height 200px
-        background-color lighten(color1, 70%)
         border-radius top 10px
         .block
           float left
@@ -186,14 +215,12 @@ section#content
             margin-top 15px
             margin-bottom 15px
 
-.widget-hidden
-  display none
-
-
-footer
-  margin-top 50px
-  margin-bottom 50px
-  
-  .branding
-    a.branding
-      button-shiny(#cc3300, #fff)
+footer#primary
+  > .wrap
+    box-shadow 0px 0px 5px rgba(0,0,0,0.2)
+    background-color lighten(color1, 70%)
+    border-radius top 5px
+    .branding
+      background-color color4
+      position relative
+      z-index 40

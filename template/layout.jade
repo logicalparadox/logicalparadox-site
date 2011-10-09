@@ -19,18 +19,28 @@ html(lang='en')
   body
     .page-wrap
       nav#primary
-        h1#site-title: a(href='/')= site.title
-        ul.menu
-          - if (files.menu)
-            for menu in files.menu
-              li.tab: a(href=menu.link)= menu.title
+        .decor
+        .wrap
+          h1#site-title: a(href='/')= site.title
+          ul.menu
+            - if (files.menu)
+              for menu in files.menu
+                li.tab: a(href=menu.link)= menu.title
       header#content
-        block header
+        .decor
+        .wrap
+          block header
       section#content
-        block content
-          .content!= file.prepared
+        .decor
+        .wrap
+          block content
+            .content!= file.prepared
       footer#primary
-        block footer
-          .branding Built by 
-            a.button.branding(href='http://logicalparadox.github.com/codex') Codex
+        .decor
+        .wrap
+          block footer
+            .branding Built by 
+              a.button.branding(href='http://logicalparadox.github.com/codex') Codex
+          .branding
+            .brand It's a Logical Paradox
     
