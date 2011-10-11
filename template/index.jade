@@ -5,28 +5,29 @@ block header
 
 block content
   #index.primary
-    .wrapper
+    .wrap
       - if (files.posts)
-      .masthead
-        - var len = (files.posts.length > 2) ? 2 : files.posts.length
-        - for (var i = 0; i < len; i++)
-          - var post = files.posts[i]
-          article.summary
-            .thumbnail :D
-            .meta
-              h4: a(href=post.href) #{post.title}
-              .summary= post.summary
-      .widget#recent-posts
-        - var len = (files.posts.length > 5) ? 5 : files.posts.length
-        - for (var i = 2; i < len; i++)
-          - var post = files.posts[i]
-          article.summary
-            .thumbnail :D
-            .meta
-              h3: a(href=post.href) #{post.title}
-              .summary= post.summary
+        section#index-articles
+          .masthead
+            - var len = (files.posts.length > 2) ? 2 : files.posts.length
+            - for (var i = 0; i < len; i++)
+              - var post = files.posts[i]
+              article.summary
+                .thumbnail :D
+                .meta
+                  h4: a(href=post.href) #{post.title}
+                  .summary= post.summary
+          .widget#recent-posts
+            - var len = (files.posts.length > 5) ? 5 : files.posts.length
+            - for (var i = 2; i < len; i++)
+              - var post = files.posts[i]
+              article.summary
+                .thumbnail :D
+                .meta
+                  h3: a(href=post.href) #{post.title}
+                  .summary= post.summary
   #index.sidebar
-    .wrapper
+    .wrap
       p test
 
 block footer

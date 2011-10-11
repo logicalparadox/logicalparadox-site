@@ -1,0 +1,206 @@
+
+columnWidth = 60px
+gutterWidth = 15px
+
+.page-wrap
+  row()
+  nav#primary
+  header#content, 
+  section#content, 
+  footer#primary
+    grid(12)
+
+section#content
+  > .wrap
+    rowInside()
+    > .primary > .wrap
+      grid(8)
+      > section#index-articles
+        > .masthead
+          rowInside()
+          > article.summary
+            grid(4)
+        > #recent-posts.widget > article.summary
+          rowInside()
+          > .thumbnail
+            grid(2)
+          > .meta
+            grid(6)
+          
+    > .sidebar > .wrap
+      grid(4)
+
+footer#primary
+  > .wrap
+    rowInside()
+    #code.widget
+      > .message > .wrap
+        grid(3)
+      > .animate > .panels > .block
+        grid(3)
+
+// resize 1 - smaller monitors / laptops / tablets horiz
+@media only screen and (min-width: 960px) and (max-width: 1080px)
+  r1cw = 50px // resize 1 column width
+  .page-wrap
+    row(r1cw)
+    nav#primary
+    header#content, 
+    section#content, 
+    footer#primary
+      grid(12, r1cw)
+  
+  section#content
+    > .wrap
+      rowInside()
+      > .primary > .wrap
+        grid(8, r1cw)
+        > section#index-articles
+          > .masthead
+            rowInside()
+            > article.summary
+              grid(4, r1cw)
+          > #recent-posts.widget > article.summary
+            rowInside()
+            > .thumbnail
+              grid(2, r1cw)
+            > .meta
+              grid(6, r1cw)
+            
+      > .sidebar > .wrap
+        grid(4, r1cw)
+  
+  footer#primary
+    > .wrap
+      rowInside()
+      #code.widget
+        > .message > .wrap
+          grid(3, r1cw)
+        > .animate > .panels > .block
+          grid(3, r1cw)
+
+// resize 2 - tablets vert
+@media only screen and (min-width: 768px) and (max-width: 959px)
+  r2cw = 60px // release 2 column width
+  r2gw = 15px // release 2 gutter width
+  r2ct = 8 // release 2 column count
+  .page-wrap
+    row(r2cw, r2gw, r2ct)
+    nav#primary
+    header#content, 
+    section#content, 
+    footer#primary
+      grid(8, r2cw, r2gw, r2ct)
+  
+  section#content
+    > .wrap
+      rowInside(r2gw)
+      > .primary > .wrap
+        grid(8, r2cw, r2gw, r2ct)
+        > section#index-articles
+          > .masthead
+            rowInside(r2gw)
+            > article.summary
+              grid(4, r2cw, r2gw, r2ct)
+          > #recent-posts.widget > article.summary
+            rowInside(r2gw)
+            > .thumbnail
+              grid(2, r2cw, r2gw, r2ct)
+            > .meta
+              grid(6, r2cw, r2gw, r2ct)
+            
+      > .sidebar > .wrap
+        grid(8, r2cw, r2gw, r2ct)
+  
+  footer#primary
+    > .wrap
+      rowInside(r2gw)
+      #code.widget
+        > .message > .wrap
+          grid(2, r2cw, r2gw, r2ct)
+        > .animate > .panels > .block
+          grid(3, r2cw, r2gw, r2ct)
+
+// resize 3 - small factor (300px total)
+@media only screen and (max-width: 767px)
+  r3cw = 55px // release 2 column width
+  r3gw = 10px // release 2 gutter width
+  r3ct = 4 // release 2 column count
+  .page-wrap
+    row(r3cw, r3gw, r3ct)
+    nav#primary
+    header#content, 
+    section#content, 
+    footer#primary
+      grid(4, r3cw, r3gw, r3ct)
+  
+  section#content
+    > .wrap
+      rowInside(r3gw)
+      > .primary > .wrap
+        grid(4, r3cw, r3gw, r3ct)
+        > section#index-articles
+          > .masthead
+            rowInside(r3gw)
+            > article.summary
+              grid(4, r3cw, r3gw, r3ct)
+          > #recent-posts.widget > article.summary
+            rowInside(r3gw)
+            > .thumbnail
+              grid(1, r3cw, r3gw, r3ct)
+            > .meta
+              grid(3, r3cw, r3gw, r3ct)
+            
+      > .sidebar > .wrap
+        grid(4, r3cw, r3gw, r3ct)
+  
+  footer#primary
+    > .wrap
+      rowInside(r3gw)
+      #code.widget
+        > .message > .wrap
+          grid(4, r3cw, r3gw, r3ct)
+        > .animate > .panels > .block
+          grid(4, r3cw, r3gw, r3ct)
+
+// resize 4- phone form factor / phones horiz? (480px total)
+@media only screen and (min-width: 480px) and (max-width: 767px)
+  r4cw = 100px // release 2 column width
+  r4gw = 10px // release 2 gutter width
+  r4ct = 4 // release 2 column count
+  .page-wrap
+    row(r4cw, r4gw, r4ct)
+    nav#primary
+    header#content, 
+    section#content, 
+    footer#primary
+      grid(4, r4cw, r4gw, r4ct)
+  
+  section#content
+    > .wrap
+      rowInside(r4gw)
+      > .primary > .wrap
+        grid(4, r4cw, r4gw, r4ct)
+        > section#index-articles
+          > .masthead
+            rowInside(r4gw)
+            > article.summary
+              grid(4, r4cw, r4gw, r4ct)
+          > #recent-posts.widget > article.summary
+            rowInside(r4gw)
+            > .thumbnail
+              grid(1, r4cw, r4gw, r4ct)
+            > .meta
+              grid(3, r4cw, r4gw, r4ct)
+            
+      > .sidebar > .wrap
+        grid(4, r4cw, r4gw, r4ct)
+  
+  footer#primary
+    > .wrap
+      rowInside(r4gw)
+      #code.widget
+        > .message > .wrap
+          grid(2, r4cw, r4gw, r4ct)
+        > .animate > .panels > .block
+          grid(2, r4cw, r4gw, r4ct)

@@ -119,7 +119,7 @@ if (typeof jQuery != 'undefined') {
      * Slider Defaults
      */
     $.fn.slider.defaults = {
-      blocks: 3
+      blocks: 4
     };
   }(jQuery));
 }

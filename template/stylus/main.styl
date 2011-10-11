@@ -14,8 +14,7 @@ color3 = #3570AA // menu links
 color4 = #DA5F3E // dark accent
 color5 = #F1EBD5 // light accent
 
-columnWidth = 50px
-gutterWidth = 15px
+
 
 body
   font 14px/21px  "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -30,14 +29,13 @@ a
   color color2
   text-decoration none
 
-.page-wrap
-  
+@import 'layout'
 
+.page-wrap
   nav#primary
   header#content, 
   section#content, 
   footer#primary
-    row(12)
     overflow visible
     position relative
     .decor
@@ -51,13 +49,12 @@ a
       background-color white
       border-radius 8px
     .wrap
-      margin-top 50px
       position relative
       display block
       z-index 20
       overflow hidden
 
-  nav#primary > .wrap
+  nav#primary
     margin-top 0px
   
   footer#primary
@@ -69,13 +66,14 @@ a
 header
   margin-top 50px
 
-nav#primary > .wrap
+nav#primary
   clearfix()
   background-color white
   border-radius bottom 5px
   line-height 54px
   overflow hidden
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)
+  margin-bottom 50px !important
   
   h1#site-title
     margin 0px 15px
@@ -96,10 +94,13 @@ nav#primary > .wrap
         padding 0 30px
         &:hover
           background-color lighten(color1, 70%)
+      &:last-child
+        a:hover
+          border-radius bottom right 5px
 
-section#content > .wrap
-  margin-top 50px
-  margin-bottom 50px
+section#content
+  margin-top 50px !important
+  margin-bottom 50px !important
   min-height 350px
   background-color white
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)
@@ -112,45 +113,35 @@ section#content > .wrap
     background-color white
     box-shadow inset -1px -1px 0px #fff, 1px 1px 3px lighten(color1, 30%)
     border-radius left 5px
+    min-height 350px
     .wrapper
-      grid(8)
       margin-top 15px
       margin-bottom 15px
       overflow visible
       .masthead
-        rowInside()
         margin-bottom 15px
         article
-          grid(4)
           .thumbnail
             box-shadow inset 0px 0px 2px color3
             height 150px
             margin-bottom 15px
       #recent-posts.widget
-        rowInside()
         margin-bottom 15px
         article
           clearfix()
           margin-top 30px
           margin-bottom 60px
           .thumbnail
-            grid(2)
             box-shadow inset 0px 0px 2px color3
             height 75px
             margin-bottom 15px
-          .meta
-            grid(6)
-          
   > .sidebar
     clearfix()
     float left
     box-shadow inset 
-    .wrapper
-      grid(4)
 
 .widget#code
   clearfix()
-  height 200px
   position relative
   .controls
     display none
@@ -189,38 +180,32 @@ section#content > .wrap
           height 25px
   .message
     clearfix()
-    background-color white
     border-radius top left 5px
-    box-shadow inset -1px -1px 0px #fff, 1px 1px 3px lighten(color1, 30%)
     float left
     height 200px
     position relative
     z-index 30
     .wrap
-      grid(3)
       height 170px
       margin-top 15px
       margin-bottom 15px
   .animate
-    box-shadow inset 1px -1px 3px lighten(color1, 30%)
     > .panels
-        height 200px
-        border-radius top 10px
-        .block
-          float left
-          overflow hidden
-          .wrap
-            grid(3)
-            height 170px
-            margin-top 15px
-            margin-bottom 15px
+      height 200px
+      border-radius top 10px
+      .block
+        float left
+        overflow hidden
+        .wrap
+          height 170px
+          margin-top 15px
+          margin-bottom 15px
 
 footer#primary
-  > .wrap
-    box-shadow 0px 0px 5px rgba(0,0,0,0.2)
-    background-color lighten(color1, 70%)
-    border-radius top 5px
-    .branding
-      background-color color4
-      position relative
-      z-index 40
+  box-shadow 0px 0px 5px rgba(0,0,0,0.2)
+  background-color lighten(color1, 70%)
+  border-radius top 5px
+  .branding
+    background-color color4
+    position relative
+    z-index 40

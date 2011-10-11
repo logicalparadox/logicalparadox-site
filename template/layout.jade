@@ -1,6 +1,7 @@
 !!!5
 html(lang='en')
   head
+    meta(name='viewport', content='width=device-width, minimum-scale=1, maximum-scale=1.0, initial-scale=1.0')
     - var sitetitle = (site && site.title) ? site.title + ' - ' + file.title : file.title
     title= sitetitle
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
@@ -39,8 +40,5 @@ html(lang='en')
         .decor
         .wrap
           block footer
-            .branding Built by 
-              a.button.branding(href='http://logicalparadox.github.com/codex') Codex
           .branding
             .brand It's a Logical Paradox
-    
