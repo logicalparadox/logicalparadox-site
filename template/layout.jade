@@ -9,7 +9,7 @@ html(lang='en')
     link(rel='stylesheet', href='/public/css/main.css', type='text/css', media='all')
     script
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-26183904-1']);
+      _gaq.push(['_setAccount', 'UA-26279411-1']);
       _gaq.push(['_trackPageview']);
     
       (function() {
@@ -21,12 +21,13 @@ html(lang='en')
     .page-wrap
       nav#primary
         .decor
-        .wrap
-          h1#site-title: a(href='/')= site.title
-          ul.menu
-            - if (files.menu)
-              for menu in files.menu
-                li.tab: a(href=menu.link)= menu.title
+        .bg
+          .wrap
+            h1#site-title: a(href='/')= site.title
+            ul.menu
+              - if (files.menu)
+                for menu in files.menu
+                  li.tab: a(href=menu.link)= menu.title
       section#content
         .decor
         .wrap

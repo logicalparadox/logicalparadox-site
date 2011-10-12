@@ -3,18 +3,21 @@ columnWidth = 60px
 gutterWidth = 15px
 
 .page-wrap
-  nav#primary
-  header#content, 
-  section#content, 
-  footer#primary
+  section#content
     row()
+
+.page-wrap
+  nav#primary
+    > .bg > .wrap
+      row()
+  
 
 // home page
 section#content
   > .wrap
     > .masthead > section
       clearfix()
-      article.summary
+      article.summary > .wrap
         grid(4)
     > #index.banner > .wrap
       grid(12)
@@ -22,7 +25,7 @@ section#content
       grid(8)
       > section#social
         rowInside()
-        > .widget
+        > .widget > .wrap
           grid(4)
       > section#recent-articles
         rowInside()
@@ -58,12 +61,8 @@ section#content
     > #blog-index.header > .wrap
       grid(12)
     > #blog-index.primary
-      > section.category
-        grid(12)
-        > .wrap
-          rowInside()
-          > article.summary > .wrap
-            grid(2)
+      > article.summary > .wrap
+        grid(2)
 footer#primary
   > .wrap
     #code.widget

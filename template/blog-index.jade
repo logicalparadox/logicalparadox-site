@@ -14,21 +14,16 @@ block content
       - cats[post.category].push(post)
     - for (var cat in cats)
       - var posts = cats[cat]
-      section.category
+      article.summary.intro
         .wrap
-          article.summary.intro
-            .wrap
-              .meta
-                h3= cat
-          - var len = (posts.length > 5) ? 5 : posts.length
-          - for (var i = 0; i < len; i++)
-            - var post = posts[i]
-            article.summary
-              .wrap
-                .thumbnail :D
-                .meta 
-                  h3: a(href=post.href) #{post.title}
-                  .summary= post.summary
-                  .action
-                    a.more(href=post.href) Read More
-                      .icon
+          .meta
+            h3= cat
+      - var len = (posts.length > 5) ? 5 : posts.length
+      - for (var i = 0; i < len; i++)
+        - var post = posts[i]
+        article.summary
+          .wrap
+            .thumbnail :D
+            .meta 
+              h3: a(href=post.href) #{post.title}
+              .summary= post.summary

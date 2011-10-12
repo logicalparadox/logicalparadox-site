@@ -1,6 +1,6 @@
 
 
-button-alp-large(btn = #F33825,bg = #8FC8D6)
+button-alp-large(btn = #AB4C16,bg = #7bb956, ft = #fff)
   background lighten(bg, 60%)
   margin 0px auto
   border-radius 5px
@@ -11,17 +11,19 @@ button-alp-large(btn = #F33825,bg = #8FC8D6)
   &:hover
     background lighten(bg, 15%)
   a
-    background linear-gradient(top, lighten(btn, 25%), lighten(btn, 10%))
+    background linear-gradient(top, lighten(btn, 25%), lighten(btn, 5%))
     border-radius 3px
-    box-shadow 0px 0px 1px white
+    box-shadow 0px 0px 1px white, inset 1px 1px 0px lighten(btn, 5%), inset -1px -1px 0px darken(btn, 10%)
     display block
-    color #fff
+    color ft
     line-height 28px
     font-size 16px
     padding 0px 15px
     text-shadow -1px -1px 0px btn
     &:active
-      background linear-gradient(top, darken(btn, 25%), darken(btn, 10%))
+      background linear-gradient(top, lighten(btn, 10%), lighten(btn, 25%))
+      box-shadow inset -1px -1px 0px lighten(btn, 80%), inset 1px 1px 0px darken(btn, 30%)
+      text-shadow 1px 1px 0px darken(btn, 30%)
 
 button-alp-small(brdr = #8FC8D6, bg = #F33825)
   border 1px lighten(brdr, 60%) solid
@@ -31,6 +33,8 @@ button-alp-small(brdr = #8FC8D6, bg = #F33825)
   display inline-block
   position relative
   line-height 24px
+  font 11px/normal helvetica,arial,freesans,clean,sans-serif
+  font-weight bold
   .icon
     position absolute
     top 2px
@@ -44,3 +48,35 @@ button-alp-small(brdr = #8FC8D6, bg = #F33825)
     border 1px brdr solid
     .icon
       background-color bg
+      
+button-shiny-alp(bg = #fff, ft = #262626, hbg = #3570AA, hft = #fff)
+  display inline-block
+  background linear-gradient(top, darken(bg, 1%), darken(bg, 5%));
+  box-shadow inset 1px 1px 0px lighten(bg, 15%), inset -1px -1px 0px darken(bg, 5%)
+  border 1px solid darken(hbg, 15%)
+  font 11px/normal helvetica,arial,freesans,clean,sans-serif
+  color darken(hbg, 15%)
+  text-decoration none
+  text-shadow 1px 1px 0px lighten(bg, 10%)
+  font-weight bold
+  border-radius 3px
+  line-height 23px
+  padding 0px 0px 0px 10px
+  overflow hidden
+  .icon
+    display inline-block
+    background linear-gradient(top, lighten(hbg, 10%), hbg);
+    box-shadow inset 1px 1px 0px lighten(hbg, 15%), inset -1px -1px 0px darken(hbg, 5%)
+    color hft
+    text-shadow -1px -1px 0px darken(hbg, 25%)
+    border 1px solid darken(hbg, 15%)
+    margin -1px -1px -1px 5px
+    padding 0px 10px
+    border-radius right 3px
+  
+  &:hover
+    background bg
+    .icon
+      background linear-gradient(top, lighten(hbg, 20%), lighten(hbg, 10%));
+  &:active
+    box-shadow inset 1px 1px 0px lighten(bg, 15%), inset -1px -1px 0px darken(bg, 5%), 1px 1px 1px bg, -1px -1px 1px darken(bg, 20%)

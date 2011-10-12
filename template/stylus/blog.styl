@@ -3,21 +3,33 @@
   min-height 200px
 
 #blog-index.primary
-  section.category
+  > article.summary
     clearfix()
-    overflow visible !important
+    padding 15px 0px
+    float left
+    border-right 1px solid darken(color1, 15%)
+    border-top 1px solid darken(color1, 15%)
+    border-bottom 1px solid darken(color1, 15%)
+    margin-right -1px
+    margin-top -1px
+    height 250px
+    overflow hidden
+    position relative
+    z-index 30
     > .wrap
-      border-top 1px solid lighten(color1, 70%)
-      display block !important
-      > article.summary
-        clearfix()
-        padding 15px 0px
-        float left
-        border-right 1px solid lighten(color1, 70%)
-        margin-right -1px
-        min-height 200px
-        > .wrap
-          > .thumbnail
-            box-shadow inset 0px 0px 2px color3
-            height 60px
-            margin-bottom 15px
+      > .thumbnail
+        box-shadow inset 0px 0px 2px color3
+        height 60px
+        margin-bottom 15px
+      > .meta
+        > .summary
+          font-size 11px
+  > article.summary.intro
+    background linear-gradient(top, lighten(color1, 40%), color1)
+    box-shadow inset 1px 1px 0px lighten(color1, 90%)
+    border-right 1px solid darken(color1, 15%)
+    border-top 1px solid darken(color1, 15%)
+    margin-right -1px
+    margin-top -1px
+    position relative
+    z-index 25

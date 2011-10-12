@@ -22,3 +22,66 @@ block footer
                 .repo: a(href=repo.repo) Fork on Github
                 .docs: a(href=repo.docs) #{repo.docstitle}
     .widget-hidden
+
+// stylus
+
+.widget#code
+  clearfix()
+  position relative
+  .controls
+    display none
+    .arrow-prev
+      background-color white
+      width 20px
+      height 40px
+      position absolute
+      top 80px
+      left -20px
+      overflow hidden
+      cursor pointer
+    .arrow-next
+      background-color white
+      width 20px
+      height 40px
+      position absolute
+      top 80px
+      right -20px
+      overflow hidden
+      cursor pointer
+    .position
+      position absolute
+      top 0px
+      white-space nowrap
+      height 25px
+      overflow hidden
+      border-left 1px lighten(black, 75%) solid
+      border-right 1px lighten(black, 75%) solid
+      border-bottom 1px lighten(black, 75%) solid
+      border-radius bottom 5px
+      .pos
+        display table-cell
+        .p
+          width 25px
+          height 25px
+  .message
+    clearfix()
+    border-radius top left 5px
+    float left
+    height 200px
+    position relative
+    z-index 30
+    .wrap
+      height 170px
+      margin-top 15px
+      margin-bottom 15px
+  .animate
+    > .panels
+      height 200px
+      border-radius top 10px
+      .block
+        float left
+        overflow hidden
+        .wrap
+          height 170px
+          margin-top 15px
+          margin-bottom 15px

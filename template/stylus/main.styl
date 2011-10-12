@@ -8,11 +8,11 @@ fez-reset()
 black = #373936
 white = darken(#fff, 2%)
 
-color1 = #8FC8D6 // background
-color2 = #F33825 // links
-color3 = #3570AA // menu links
-color4 = #DA5F3E // dark accent
-color5 = #F1EBD5 // light accent
+color1 = #e5eae7 // background
+color2 = #E64E1C // links
+color3 = #AB4C16 // menu links
+color4 = #7bb956 // light accent
+color5 = #212622 // dark accent
 
 
 
@@ -26,29 +26,26 @@ h1, h2, h3, h4, h5
   font-weight normal
 
 a
-  color color2
+  color color4
   text-decoration none
 
 @import 'layout'
 
 .page-wrap
-  nav#primary
-  header#content, 
-  section#content, 
-  footer#primary
+  section#content
     overflow visible
     position relative
-    .decor
+    > .decor
       position absolute
-      top -6px
-      bottom -6px
-      right -6px
-      left -6px
+      top -4px
+      bottom -4px
+      right -4px
+      left -4px
       z-index 5
-      opacity 0.4
-      background-color white
+      opacity 0.7
+      background-color color4
       border-radius 8px
-    .wrap
+    > .wrap
       position relative
       display block
       z-index 20
@@ -70,14 +67,28 @@ a
 
 
 
-nav#primary > .wrap
+nav#primary
   clearfix()
-  background-color white
-  border-radius bottom 5px
   line-height 54px
-  overflow hidden
-  box-shadow 0px 0px 5px rgba(0,0,0,0.2)
+  overflow visible
   margin-bottom 50px !important
+  position relative
+  > .decor
+    position absolute
+    top 0px
+    bottom -4px
+    right 0px
+    left 0px
+    z-index 5
+    opacity 0.7
+    background-color color4
+  > .bg
+    background linear-gradient(top, lighten(color5, 15%), color5)
+    position relative
+    z-index 15
+    box-shadow 0px 0px 3px color5
+    > .wrap
+      clearfix()
   
   h1#site-title
     margin 0px 15px
@@ -85,22 +96,29 @@ nav#primary > .wrap
     line-height 54px
     float left
     a
-      color black
+      color white
+      &:hover
+        color color4
   ul.menu
     list-style none
     float right
     li.tab
       margin-left 0px
       float left
-      border-left 1px solid lighten(black, 75%)
+      border-right 1px darken(color5, 15%) solid
+      box-shadow inset -1px 0px 0px lighten(color5, 15%)
+      &:first-child
+        border-left 1px darken(color5, 15%) solid
+        box-shadow inset 1px 0px 0px lighten(color5, 15%), inset -1px 0px 0px lighten(color5, 15%)
       a
-        display inline-block
-        padding 0 30px
+        display block
+        float left
+        padding 0px 30px
+        font-size 16px
+        color white
+        text-shadow -1px -1px 0px darken(color5, 15%)
         &:hover
-          background-color lighten(color1, 70%)
-      &:last-child
-        a:hover
-          border-radius bottom right 5px
+          background linear-gradient(top, lighten(color5, 20%), lighten(color5, 5%))
 
 section#content > .wrap
   margin-top 50px !important
@@ -112,8 +130,6 @@ section#content > .wrap
   overflow hidden
   > .masthead
     clearfix()
-    padding-top 15px
-    padding-bottom 15px
   > .primary
     clearfix()
     float left
@@ -136,76 +152,82 @@ section#content > .wrap
 #index.masthead
   section#index-articles
     article.summary
-      .thumbnail
-        box-shadow inset 0px 0px 2px color3
-        height 150px
-        margin-bottom 15px
-        
-      .action
-        margin-top 10px
-        .more
-          button-alp-large()
+      clearfix()
+      float left
+      border-right 1px dotted darken(color1, 15%)
+      margin-right -1px
+      > .wrap
+        padding-top 15px
+        padding-bottom 15px
+        .thumbnail
+          box-shadow inset 0px 0px 2px color3
+          height 150px
+          margin-bottom 15px
+          
+        .action
+          margin-top 10px
+          .more
+            button-alp-large()
 
 #index.banner
   clearfix()
-  background-color white
-  border-top 1px color1 solid
-  border-bottom 1px color1 solid
+  background linear-gradient(top, lighten(color1, 40%), color1)
+  box-shadow inset 1px 1px 0px lighten(color1, 90%)
+  padding-top 15px
+  padding-bottom 15px
+  border-top darken(color1, 15%) 1px solid
+  border-bottom darken(color1, 15%) 1px solid
   > .wrap
+    background linear-gradient(top, lighten(color4, 20%), color4)
+    box-shadow 1px 1px 0px white, -1px -1px 0px darken(color4, 25%)
+    border-radius 5px
+    text-shadow 1px 1px 0px lighten(color4, 60%)
     #for-hire.widget
+      padding 0px 15px
       margin-top 15px
 
 #index.primary
-  border-right 1px solid lighten(color1, 70%)
+  border-right 1px solid darken(color1, 15%)
   margin-right -1px
   > .wrap
     overflow visible !important
     
     section#social
-      border-bottom 1px solid lighten(color1, 70%)
-      padding-bottom 15px
-      padding-top 15px
-      
-      #twitter > .wrap
-        border 1px solid lighten(color1, 40%)
-        background lighten(color5, 60%)
-        border-radius 5px
-        padding 2px
-        height 150px
-        overflow hidden
+      background linear-gradient(top, lighten(color1, 40%), color1)
+      border-bottom 1px solid darken(color1, 15%)
+      > .widget
+        float left
+        padding-top 15px
+        padding-bottom 15px
+        min-height 150px
+      #twitter
         position relative
-        
-        &:hover
-          border 1px solid color1
-        
-        .follow
+        border-right 1px solid darken(color1, 15%)
+        margin-right -1px
+        box-shadow inset 1px 1px 0px lighten(color1, 90%)
+        z-index 30
+        .follow a
+          button-shiny-alp(#fff, black, #2ca3db, #fff)
           position absolute
-          bottom 2px
-          left 2px
-          right 2px
-          background-color color1
-          border-radius bottom 3px
-          padding 3px
-        
-      #github > .wrap
-        border 1px solid lighten(color1, 40%)
-        background lighten(color5, 60%)
-        border-radius 5px
-        padding 2px
-        height 150px
-        
-        &:hover
-          border 1px solid color1
+          bottom 15px
+          right 15px
+      #github
+        position relative
+        box-shadow inset 2px 1px 0px lighten(color1, 90%)
+        z-index 25
+        .follow a
+          button-shiny-alp()
+          position absolute
+          bottom 15px
+          right 15px
+
     
     section#recent-articles
       padding-top 10px
       article.summary
-        border-bottom 1px dotted lighten(color1, 60%)
+        border-bottom 1px dotted darken(color1, 15%)
         margin-bottom 15px
         padding-bottom 15px
-        
-        &:last-child
-          border-bottom none
         
         .thumbnail
           box-shadow inset 0px 0px 2px color3
@@ -215,7 +237,7 @@ section#content > .wrap
         .action
           margin-top 10px
           .more
-            button-alp-small()
+            button-shiny()
     
     section#actions
       margin-bottom 15px
@@ -223,68 +245,8 @@ section#content > .wrap
         button-alp-large()
         width 200px
 
-.widget#code
-  clearfix()
-  position relative
-  .controls
-    display none
-    .arrow-prev
-      background-color white
-      width 20px
-      height 40px
-      position absolute
-      top 80px
-      left -20px
-      overflow hidden
-      cursor pointer
-    .arrow-next
-      background-color white
-      width 20px
-      height 40px
-      position absolute
-      top 80px
-      right -20px
-      overflow hidden
-      cursor pointer
-    .position
-      position absolute
-      top 0px
-      white-space nowrap
-      height 25px
-      overflow hidden
-      border-left 1px lighten(black, 75%) solid
-      border-right 1px lighten(black, 75%) solid
-      border-bottom 1px lighten(black, 75%) solid
-      border-radius bottom 5px
-      .pos
-        display table-cell
-        .p
-          width 25px
-          height 25px
-  .message
-    clearfix()
-    border-radius top left 5px
-    float left
-    height 200px
-    position relative
-    z-index 30
-    .wrap
-      height 170px
-      margin-top 15px
-      margin-bottom 15px
-  .animate
-    > .panels
-      height 200px
-      border-radius top 10px
-      .block
-        float left
-        overflow hidden
-        .wrap
-          height 170px
-          margin-top 15px
-          margin-bottom 15px
-
-.sidebar
+#index.sidebar > .wrap
+  overflow visible !important
   .widget
     margin-bottom 15px
   .widget#products
@@ -292,21 +254,7 @@ section#content > .wrap
     section.product
       position relative
       margin-bottom 15px
-      &:hover
-        background-color lighten(color1, 85%)
-        box-shadow inset 1px 1px 2px lighten(color1, 30%), 1px 1px 1px lighten(color1, 90%), inset -1px -1px 0px lighten(color1, 45%), inset 1px 1px 0px lighten(color1, 35%)
-        border-radius 5px
-      .icon
-        position absolute
-        border-radius 3px
-        top 5px
-        left 5px
-        width 29px
-        height 29px
-        background color1
       .meta
-        margin-left 50px
-        padding 5px
         clearfix()
         h3.title
           margin-bottom 0px
@@ -319,22 +267,16 @@ section#content > .wrap
             padding 0px 5px
         .summary
           font-size 12px
-        .repo > a
-          button-shiny()
+      &.view-all > .wrap
+        clearfix()
+        .meta
+          float left
+          h2.title
+            margin-bottom 0px
+            line-height 26px
+        .more
+          button-alp-small()
           float right
-          margin-left 5px
-        .docs > a
-          button-shiny()
-          float right
-    
-  .widget#twitter
-    clearfix()
-    section#widget
-      min-height 75px
-      background linear-gradient(top, lighten(color1, 10%), darken(color1, 10%))
-      border 1px solid darken(color1, 15%)
-      border-radius 5px
-      box-shadow 1px 1px 1px white
     
 footer#primary > .wrap
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)

@@ -11,12 +11,13 @@ block content
         - for (var i = 0; i < len; i++)
           - var post = files.blog[i]
           article.summary
-            .thumbnail :D
-            .meta
-              h4: a(href=post.href) #{post.title}
-              .summary= post.summary
-              .action
-                .more: a(href=post.href) Read More
+            .wrap
+              .thumbnail :D
+              .meta
+                h2: a(href=post.href) #{post.title}
+                .summary= post.summary
+                .action
+                  .more: a(href=post.href) Read More
   #index.banner
     .wrap
       .widget#for-hire
@@ -28,15 +29,17 @@ block content
           .wrap
             .meta meta
             .recent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non gravida magna. Ut auctor risus id sem posuere eget ultrices metus.
-            .follow Follow @jakeluer on Twitter
+            .follow: a(href='http://twitter.com/jakeluer') Follow on Twitter
+              .icon @jakeluer
         .widget#github
           .wrap
             .meta
             .recent
-            .follow Follow @logicalparadox on Github
+            .follow: a(href='http://twitter.com/jakeluer') Follow on Github
+              .icon @logicalparadox
       - if (files.blog)
         section#recent-articles
-          - var len = (files.blog.length > 8) ? 8 : files.blog.length
+          - var len = (files.blog.length > 6) ? 6 : files.blog.length
           - for (var i = 3; i < len; i++)
             - var post = files.blog[i]
             article.summary
@@ -52,12 +55,21 @@ block content
   #index.sidebar
     .wrap
       .widget#products
-        - for (var i = 0; i < files.code.length; i++)
-          - var repo = files.code[i]
-          section.product.codex 
-            .icon
+        section.product.view-all
+          .wrap
             .meta
-              h3.title
-                a(href=repo.href)= repo.title
-                .version= repo.version
-              .summary= repo.summary
+              h2.title Recent Projects
+            .action
+              a.more(href='/code/') View All Projects
+                .icon
+        - var len = (files.code.length > 3) ? 3 : files.code.length
+        - for (var i = 0; i < len; i++)
+          - var repo = files.code[i]
+          section.product
+            .wrap
+              .meta
+                h3.title
+                  a(href=repo.href)= repo.title
+                  .version= repo.version
+                .summary= repo.summary
+        
