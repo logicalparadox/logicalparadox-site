@@ -27,10 +27,6 @@ html(lang='en')
             - if (files.menu)
               for menu in files.menu
                 li.tab: a(href=menu.link)= menu.title
-      header#content
-        .decor
-        .wrap
-          block header
       section#content
         .decor
         .wrap

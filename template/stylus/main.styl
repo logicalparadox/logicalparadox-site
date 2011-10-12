@@ -1,6 +1,6 @@
 @import 'nib'
 @import 'fez'
-
+@import 'buttons'
 global-reset()
 
 fez-reset()
@@ -17,7 +17,7 @@ color5 = #F1EBD5 // light accent
 
 
 body
-  font 14px/21px  "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font 12px/21px  "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif
   background-color color1
   color black
 
@@ -54,19 +54,23 @@ a
       z-index 20
       overflow hidden
 
-  nav#primary
+
+
+  > nav#primary
     margin-top 0px
+    
+  > header#content
+    margin-top 50px
   
-  footer#primary
+  > footer#primary
     .decor
       bottom 0px
       border-radius top 8px
       border-radius bottom 0px
 
-header
-  margin-top 50px
 
-nav#primary
+
+nav#primary > .wrap
   clearfix()
   background-color white
   border-radius bottom 5px
@@ -98,47 +102,126 @@ nav#primary
         a:hover
           border-radius bottom right 5px
 
-section#content
+section#content > .wrap
   margin-top 50px !important
   margin-bottom 50px !important
   min-height 350px
   background-color white
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)
-  background-color lighten(color1, 70%)
   border-radius 5px
   overflow hidden
+  > .masthead
+    clearfix()
+    padding-top 15px
+    padding-bottom 15px
   > .primary
     clearfix()
     float left
-    background-color white
-    box-shadow inset -1px -1px 0px #fff, 1px 1px 3px lighten(color1, 30%)
-    border-radius left 5px
-    min-height 350px
-    .wrapper
+    min-height 450px
+    > .wrap
       margin-top 15px
       margin-bottom 15px
       overflow visible
-      .masthead
-        margin-bottom 15px
-        article
-          .thumbnail
-            box-shadow inset 0px 0px 2px color3
-            height 150px
-            margin-bottom 15px
-      #recent-posts.widget
-        margin-bottom 15px
-        article
-          clearfix()
-          margin-top 30px
-          margin-bottom 60px
-          .thumbnail
-            box-shadow inset 0px 0px 2px color3
-            height 75px
-            margin-bottom 15px
   > .sidebar
     clearfix()
     float left
-    box-shadow inset 
+    margin-top 15px
+    margin-bottom 15px
+    > .wrap
+      overflow visible
+  > .footer
+    float left
+    padding-top 15px
+
+#index.masthead
+  section#index-articles
+    article.summary
+      .thumbnail
+        box-shadow inset 0px 0px 2px color3
+        height 150px
+        margin-bottom 15px
+        
+      .action
+        margin-top 10px
+        .more
+          button-alp-large()
+
+#index.banner
+  clearfix()
+  background-color white
+  border-top 1px color1 solid
+  border-bottom 1px color1 solid
+  > .wrap
+    #for-hire.widget
+      margin-top 15px
+
+#index.primary
+  border-right 1px solid lighten(color1, 70%)
+  margin-right -1px
+  > .wrap
+    overflow visible !important
+    
+    section#social
+      border-bottom 1px solid lighten(color1, 70%)
+      padding-bottom 15px
+      padding-top 15px
+      
+      #twitter > .wrap
+        border 1px solid lighten(color1, 40%)
+        background lighten(color5, 60%)
+        border-radius 5px
+        padding 2px
+        height 150px
+        overflow hidden
+        position relative
+        
+        &:hover
+          border 1px solid color1
+        
+        .follow
+          position absolute
+          bottom 2px
+          left 2px
+          right 2px
+          background-color color1
+          border-radius bottom 3px
+          padding 3px
+        
+      #github > .wrap
+        border 1px solid lighten(color1, 40%)
+        background lighten(color5, 60%)
+        border-radius 5px
+        padding 2px
+        height 150px
+        
+        &:hover
+          border 1px solid color1
+    
+    section#recent-articles
+      padding-top 10px
+      article.summary
+        border-bottom 1px dotted lighten(color1, 60%)
+        margin-bottom 15px
+        padding-bottom 15px
+        
+        &:last-child
+          border-bottom none
+        
+        .thumbnail
+          box-shadow inset 0px 0px 2px color3
+          height 70px
+          margin-bottom 15px
+          
+        .action
+          margin-top 10px
+          .more
+            button-alp-small()
+    
+    section#actions
+      margin-bottom 15px
+      .more
+        button-alp-large()
+        width 200px
 
 .widget#code
   clearfix()
@@ -201,7 +284,59 @@ section#content
           margin-top 15px
           margin-bottom 15px
 
-footer#primary
+.sidebar
+  .widget
+    margin-bottom 15px
+  .widget#products
+    clearfix()
+    section.product
+      position relative
+      margin-bottom 15px
+      &:hover
+        background-color lighten(color1, 85%)
+        box-shadow inset 1px 1px 2px lighten(color1, 30%), 1px 1px 1px lighten(color1, 90%), inset -1px -1px 0px lighten(color1, 45%), inset 1px 1px 0px lighten(color1, 35%)
+        border-radius 5px
+      .icon
+        position absolute
+        border-radius 3px
+        top 5px
+        left 5px
+        width 29px
+        height 29px
+        background color1
+      .meta
+        margin-left 50px
+        padding 5px
+        clearfix()
+        h3.title
+          margin-bottom 0px
+          font-size 14px
+          line-height 21px
+          .version
+            display inline-block
+            color black
+            font-size 11px
+            padding 0px 5px
+        .summary
+          font-size 12px
+        .repo > a
+          button-shiny()
+          float right
+          margin-left 5px
+        .docs > a
+          button-shiny()
+          float right
+    
+  .widget#twitter
+    clearfix()
+    section#widget
+      min-height 75px
+      background linear-gradient(top, lighten(color1, 10%), darken(color1, 10%))
+      border 1px solid darken(color1, 15%)
+      border-radius 5px
+      box-shadow 1px 1px 1px white
+    
+footer#primary > .wrap
   box-shadow 0px 0px 5px rgba(0,0,0,0.2)
   background-color lighten(color1, 70%)
   border-radius top 5px
@@ -209,3 +344,6 @@ footer#primary
     background-color color4
     position relative
     z-index 40
+  
+@import 'code'
+@import 'blog'

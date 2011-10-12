@@ -1,0 +1,46 @@
+
+
+button-alp-large(btn = #F33825,bg = #8FC8D6)
+  background lighten(bg, 60%)
+  margin 0px auto
+  border-radius 5px
+  padding 5px
+  display block
+  width 150px
+  text-align center
+  &:hover
+    background lighten(bg, 15%)
+  a
+    background linear-gradient(top, lighten(btn, 25%), lighten(btn, 10%))
+    border-radius 3px
+    box-shadow 0px 0px 1px white
+    display block
+    color #fff
+    line-height 28px
+    font-size 16px
+    padding 0px 15px
+    text-shadow -1px -1px 0px btn
+    &:active
+      background linear-gradient(top, darken(btn, 25%), darken(btn, 10%))
+
+button-alp-small(brdr = #8FC8D6, bg = #F33825)
+  border 1px lighten(brdr, 60%) solid
+  border-radius 3px
+  font-size 12px
+  padding 0px 35px 0px 10px
+  display inline-block
+  position relative
+  line-height 24px
+  .icon
+    position absolute
+    top 2px
+    bottom 2px
+    right 2px
+    width 20px
+    float right
+    border-radius 2px
+    background-color lighten(bg, 80%)
+  &:hover
+    border 1px brdr solid
+    .icon
+      background-color bg

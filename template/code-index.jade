@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  #code-index.header
+    .wrap
+      h1= file.title
+      .content!= file.prepared
+  #code-index.primary
+    - for (var i = 0; i < files.code.length; i++)
+      - var repo = files.code[i]
+      section.project
+        .wrap
+          .icon
+          .meta
+            h2.title: a(href=repo.href)= repo.title
+            .summary= repo.summary
+            .action
+              a.learn(href=repo.href) Learn More
+                .icon
+  #code-index.footer
+    .test this is the footer

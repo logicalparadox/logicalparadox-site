@@ -1,0 +1,24 @@
+block footer
+  - if (files.code)
+    .widget#code
+      .controls
+        .arrow-prev prev
+        .arrow-next next
+        .position
+      .message
+        .wrap
+          p Hello there
+      .animate
+        .panels
+        .blocks
+          - for (var i = 0; i < files.code.length; i++)
+            - var repo = files.code[i]
+            .block 
+              .wrap
+                h3
+                  a(href=repo.href)= repo.title
+                  .version= repo.version
+                .summary: p= repo.summary
+                .repo: a(href=repo.repo) Fork on Github
+                .docs: a(href=repo.docs) #{repo.docstitle}
+    .widget-hidden

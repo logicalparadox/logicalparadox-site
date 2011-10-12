@@ -3,56 +3,91 @@ columnWidth = 60px
 gutterWidth = 15px
 
 .page-wrap
-  row()
   nav#primary
   header#content, 
   section#content, 
   footer#primary
-    grid(12)
+    row()
 
+// home page
 section#content
   > .wrap
-    rowInside()
-    > .primary > .wrap
+    > .masthead > section
+      clearfix()
+      article.summary
+        grid(4)
+    > #index.banner > .wrap
+      grid(12)
+    > #index.primary > .wrap
       grid(8)
-      > section#index-articles
-        > .masthead
-          rowInside()
-          > article.summary
-            grid(4)
-        > #recent-posts.widget > article.summary
-          rowInside()
+      > section#social
+        rowInside()
+        > .widget
+          grid(4)
+      > section#recent-articles
+        rowInside()
+        article.summary
+          clearfix()
           > .thumbnail
             grid(2)
           > .meta
             grid(6)
           
-    > .sidebar > .wrap
+    > #index.sidebar > .wrap
       grid(4)
+    > #index.footer
+      clearfix()
+      > .wrap
+        grid(12)
 
+// code-index page
+section#content
+  > .wrap
+    > #code-index.header > .wrap
+      grid(12)
+    > #code-index.primary
+      > section.project > .wrap
+        grid(3)
+    > #code-index.footer
+      > .test
+        grid(12)
+
+// blog-index page
+section#content
+  > .wrap
+    > #blog-index.header > .wrap
+      grid(12)
+    > #blog-index.primary
+      > section.category
+        grid(12)
+        > .wrap
+          rowInside()
+          > article.summary > .wrap
+            grid(2)
 footer#primary
   > .wrap
-    rowInside()
     #code.widget
-      > .message > .wrap
-        grid(3)
-      > .animate > .panels > .block
-        grid(3)
+    > .message > .wrap
+      grid(3)
+    > .animate
+      grid(9)
+      > .panels
+        rowInside()
+        > .block
+          grid(3)
 
 // resize 1 - smaller monitors / laptops / tablets horiz
 @media only screen and (min-width: 960px) and (max-width: 1080px)
   r1cw = 50px // resize 1 column width
   .page-wrap
-    row(r1cw)
     nav#primary
     header#content, 
     section#content, 
     footer#primary
-      grid(12, r1cw)
+      row(r1cw)
   
   section#content
     > .wrap
-      rowInside()
       > .primary > .wrap
         grid(8, r1cw)
         > section#index-articles
@@ -72,12 +107,15 @@ footer#primary
   
   footer#primary
     > .wrap
-      rowInside()
       #code.widget
         > .message > .wrap
           grid(3, r1cw)
-        > .animate > .panels > .block
-          grid(3, r1cw)
+        > .animate
+          grid(9, r1cw)
+          > .panels
+            rowInside()
+            > .block
+              grid(3, r1cw)
 
 // resize 2 - tablets vert
 @media only screen and (min-width: 768px) and (max-width: 959px)
@@ -85,16 +123,14 @@ footer#primary
   r2gw = 15px // release 2 gutter width
   r2ct = 8 // release 2 column count
   .page-wrap
-    row(r2cw, r2gw, r2ct)
     nav#primary
     header#content, 
     section#content, 
     footer#primary
-      grid(8, r2cw, r2gw, r2ct)
+      row(r2cw, r2gw, r2ct)
   
   section#content
     > .wrap
-      rowInside(r2gw)
       > .primary > .wrap
         grid(8, r2cw, r2gw, r2ct)
         > section#index-articles
@@ -114,12 +150,15 @@ footer#primary
   
   footer#primary
     > .wrap
-      rowInside(r2gw)
       #code.widget
         > .message > .wrap
           grid(2, r2cw, r2gw, r2ct)
-        > .animate > .panels > .block
-          grid(3, r2cw, r2gw, r2ct)
+        > .animate
+          grid(6, r2cw, r2gw, r2ct)
+          > .panels
+            rowInside(r2gw)
+            > .block
+              grid(2, r2cw, r2gw, r2ct)
 
 // resize 3 - small factor (300px total)
 @media only screen and (max-width: 767px)

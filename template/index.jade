@@ -4,53 +4,60 @@ block header
   h1= file.title
 
 block content
+  #index.masthead
+    - if (files.blog)
+      section#index-articles
+        - var len = (files.blog.length > 3) ? 3 : files.blog.length
+        - for (var i = 0; i < len; i++)
+          - var post = files.blog[i]
+          article.summary
+            .thumbnail :D
+            .meta
+              h4: a(href=post.href) #{post.title}
+              .summary= post.summary
+              .action
+                .more: a(href=post.href) Read More
+  #index.banner
+    .wrap
+      .widget#for-hire
+        h2 I am for hire. Services, contact.
   #index.primary
     .wrap
-      - if (files.posts)
-        section#index-articles
-          .masthead
-            - var len = (files.posts.length > 2) ? 2 : files.posts.length
-            - for (var i = 0; i < len; i++)
-              - var post = files.posts[i]
-              article.summary
-                .thumbnail :D
-                .meta
-                  h4: a(href=post.href) #{post.title}
-                  .summary= post.summary
-          .widget#recent-posts
-            - var len = (files.posts.length > 5) ? 5 : files.posts.length
-            - for (var i = 2; i < len; i++)
-              - var post = files.posts[i]
-              article.summary
-                .thumbnail :D
-                .meta
-                  h3: a(href=post.href) #{post.title}
-                  .summary= post.summary
+      section#social
+        .widget#twitter
+          .wrap
+            .meta meta
+            .recent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non gravida magna. Ut auctor risus id sem posuere eget ultrices metus.
+            .follow Follow @jakeluer on Twitter
+        .widget#github
+          .wrap
+            .meta
+            .recent
+            .follow Follow @logicalparadox on Github
+      - if (files.blog)
+        section#recent-articles
+          - var len = (files.blog.length > 8) ? 8 : files.blog.length
+          - for (var i = 3; i < len; i++)
+            - var post = files.blog[i]
+            article.summary
+              .thumbnail :D
+              .meta
+                h3: a(href=post.href) #{post.title}
+                .summary= post.summary
+                .action
+                  a.more(href=post.href) Read More
+                    .icon
+      section#actions
+        .more: a(href='/blog/') View the Blog Archive
   #index.sidebar
     .wrap
-      p test
-
-block footer
-  - if (files.code)
-    .widget#code
-      .controls
-        .arrow-prev prev
-        .arrow-next next
-        .position
-      .message
-        .wrap
-          p Hello there
-      .animate
-        .panels
-        .blocks
-          - for (var i = 0; i < files.code.length; i++)
-            - var repo = files.code[i]
-            .block 
-              .wrap
-                h3
-                  a(href=repo.href)= repo.title
-                  .version= repo.version
-                .summary: p= repo.summary
-                .repo: a(href=repo.repo) Fork on Github
-                .docs: a(href=repo.docs) #{repo.docstitle}
-    .widget-hidden
+      .widget#products
+        - for (var i = 0; i < files.code.length; i++)
+          - var repo = files.code[i]
+          section.product.codex 
+            .icon
+            .meta
+              h3.title
+                a(href=repo.href)= repo.title
+                .version= repo.version
+              .summary= repo.summary

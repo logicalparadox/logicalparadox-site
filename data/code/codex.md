@@ -1,7 +1,7 @@
 ---
   title: Codex
-  summary: Tiny static site builder.
-  repo: http://github.com/codexjs/codex
+  summary: Build static sites quickly with Jade & Stylus.
+  repo: http://github.com/logicalparadox/codex
   docstitle: CodexJs.com
   docs: http://codexjs.com
   version: '0.0.1'

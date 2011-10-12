@@ -1,1 +1,11 @@
 extends layout
+
+block content
+  #code.header
+    
+  #code.primary
+    .wrap
+      h1= file.title
+      .content!= file.prepared
+  #code.footer
+    .test this is the footer
