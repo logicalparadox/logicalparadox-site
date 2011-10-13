@@ -1,7 +1,16 @@
 extends layout
 
-block header
-  h1= file.title
-
 block content
-  article!= file.prepared
+  #blog-post.header
+    .wrap
+      h1= file.title
+      .content!= file.summary
+  #blog-post.left-sidebar
+    .wrap About the author
+  #blog-post.primary
+    .wrap
+      .content!= file.prepared
+  #blog-post.right-sidebar
+    .wrap Social
+    script
+      paradox.socialTrack('developmentseed.org/blog/2011/10/12/mapping-google-doc-spreadsheet/');
